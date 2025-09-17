@@ -3,8 +3,8 @@ package movie.model;
 import java.util.HashMap;
 
 public class Cinema {
-    private byte startTime;
-    private byte endTime;
+    private int startTime;
+    private int endTime;
 
     private char maxRow;
     private int maxColumn;
@@ -14,19 +14,27 @@ public class Cinema {
     //                    row,    column
     private final HashMap<String, Seat[]> seats = new HashMap<>();
 
-    public Cinema(byte startTime, byte endTime, char maxRow, int maxColumn, SeatGradeRule seatGradeRule) {
+    public Cinema(int startTime, int endTime, char maxRow, int maxColumn, SeatGradeRule seatGradeRule) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.maxRow = maxRow;
         this.maxColumn = maxColumn;
         this.seatGradeRule = seatGradeRule;
 
-        for (int i = 'A'; i <= maxRow; i++) {
+        for (char i = 'A'; i <= maxRow; i++) {
             Seat[] _seat = new Seat[this.maxColumn];
             for (int j = 0; j < this.maxColumn; j++) {
-                _seat[j] = new Seat(seatGradeRule.getSeatGrade(String.valueOf((char) i), String.valueOf(maxRow)));
+                _seat[j] = new Seat(seatGradeRule.getSeatGrade(i, maxRow));
             }
-            seats.put(String.valueOf((char) i), _seat);
+            seats.put(String.valueOf(i), _seat);
         }
+    }
+
+    public HashMap<String, Seat[]> getSeats() {
+        return seats;
+    }
+
+    public void addMovie(Movie movie) {
+        movie.setSeats(seats);
     }
 }
