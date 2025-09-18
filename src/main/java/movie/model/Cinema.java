@@ -40,6 +40,18 @@ public class Cinema {
         return seats;
     }
 
+    public Ticket getTicket(LocalDate date, String title, int startTime, String row, int column) throws Exception {
+        Movie movie = schedule.get(date)[startTime];
+
+        if (movie == null || movie.getTitle().equals(title)) throw new Exception("존재 하지 않는 영화입니다");
+
+        Seat seat = movie.getSeat(row, column);
+
+        if (seat == null) throw new Exception("존재 하지 않는 좌석입니다");
+
+        return new Ticket(movie, seat, startTime, startTime + movie.getRunningTime());
+    }
+
     public void addMovie(int year, int month, int day, int startTime, Movie movie) throws Exception {
         LocalDate date = LocalDate.of(year, month, day);
         Movie[] dailySchedule = schedule.computeIfAbsent(date, k -> new Movie[closedTime - openTime]);

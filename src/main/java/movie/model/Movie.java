@@ -18,12 +18,20 @@ public class Movie {
         this.seats = seats;
     }
 
+    public Seat getSeat(String row, int column) {
+        return this.seats.get(row)[column];
+    }
+
     public int getRunningTime() {
         return this.runningTime;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        return true;
-//    }
+    public String getTitle() {
+        return this.title;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return true;
+    }
 }

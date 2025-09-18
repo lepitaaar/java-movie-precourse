@@ -1,13 +1,33 @@
 package movie.model;
 
+import java.util.ArrayList;
+
 public class User {
 
+    private final Long id;
     private int point = 0;
 
-    public User() {}
+    ArrayList<Ticket> tickets = new ArrayList<>();
 
-    public void reserveMovie(String movieTitle, int time) {
+    public User(Long id) {
+        this.id = id;
+    }
 
+    public void buyTicket(Ticket ticket) throws Exception {
+        for (Ticket t : tickets) {
+            int startTime = t.getStartTime();
+            int endTime = t.getEndTime();
+            
+            if (ticket.getStartTime() >= startTime
+                    && ticket.getStartTime() < endTime) throw new Exception("이미 해당 시간에 예매된 티켓이 있습니다");
+        }
+
+        ticket.setUserId(id);
+        tickets.add(ticket);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public int getPoint() {
