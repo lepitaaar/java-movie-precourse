@@ -1,4 +1,4 @@
-package movie.model;
+package movie.model.seat;
 
 import org.junit.jupiter.api.Test;
 

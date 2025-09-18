@@ -1,4 +1,4 @@
-package movie.model;
+package movie.model.seat;
 
 public enum SeatGrade {
     S(18_000),

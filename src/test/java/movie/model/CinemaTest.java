@@ -1,5 +1,6 @@
 package movie.model;
 
+import movie.model.seat.SeatGrade;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

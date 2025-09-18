@@ -1,5 +1,8 @@
 package movie.model;
 
+import movie.model.seat.Seat;
+import movie.model.seat.SeatGradeRule;
+
 import java.util.HashMap;
 
 public class Cinema {

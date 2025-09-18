@@ -1,4 +1,4 @@
-package movie.model;
+package movie.model.seat;
 
 public class Seat {
     private final SeatGrade grade;

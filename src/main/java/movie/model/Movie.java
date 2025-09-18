@@ -1,5 +1,7 @@
 package movie.model;
 
+import movie.model.seat.Seat;
+
 import java.util.HashMap;
 
 public class Movie {

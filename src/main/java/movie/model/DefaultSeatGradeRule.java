@@ -1,5 +1,8 @@
 package movie.model;
 
+import movie.model.seat.SeatGrade;
+import movie.model.seat.SeatGradeRule;
+
 public class DefaultSeatGradeRule implements SeatGradeRule {
     @Override
     public SeatGrade getSeatGrade(char row, char maxRow) {
