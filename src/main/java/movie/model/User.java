@@ -31,6 +31,8 @@ public class User {
         }
         PaymentSystem.pay(ticket, payment);
 
+        addPoint((int) (ticket.getSeat().getGrade().getPrice() * 0.01));
+
         ticket.setUserId(id);
         tickets.add(ticket);
     }
