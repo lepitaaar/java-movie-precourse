@@ -1,5 +1,8 @@
 package movie.model;
 
+import movie.model.pay.Payment;
+import movie.model.pay.PaymentSystem;
+
 import java.util.ArrayList;
 
 public class User {
@@ -13,7 +16,7 @@ public class User {
         this.id = id;
     }
 
-    public void buyTicket(Ticket ticket) throws Exception {
+    public void buyTicket(Ticket ticket, Payment payment, boolean usePoint) throws Exception {
         for (Ticket t : tickets) {
             int startTime = t.getStartTime();
             int endTime = t.getEndTime();
@@ -21,6 +24,12 @@ public class User {
             if (ticket.getStartTime() >= startTime
                     && ticket.getStartTime() < endTime) throw new Exception("이미 해당 시간에 예매된 티켓이 있습니다");
         }
+
+        if (usePoint) {
+            PaymentSystem.pay(ticket, this.point, payment);
+            minusPoint(this.point);
+        }
+        PaymentSystem.pay(ticket, payment);
 
         ticket.setUserId(id);
         tickets.add(ticket);

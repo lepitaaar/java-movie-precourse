@@ -49,7 +49,7 @@ public class Cinema {
 
         if (seat == null) throw new Exception("존재 하지 않는 좌석입니다");
 
-        return new Ticket(movie, seat, startTime, startTime + movie.getRunningTime());
+        return new Ticket(date, movie, seat, startTime, startTime + movie.getRunningTime());
     }
 
     public void addMovie(int year, int month, int day, int startTime, Movie movie) throws Exception {
