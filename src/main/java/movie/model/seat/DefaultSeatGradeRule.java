@@ -1,7 +1,4 @@
-package movie.model;
-
-import movie.model.seat.SeatGrade;
-import movie.model.seat.SeatGradeRule;
+package movie.model.seat;
 
 public class DefaultSeatGradeRule implements SeatGradeRule {
     @Override
