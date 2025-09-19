@@ -3,7 +3,6 @@ package movie.model;
 import movie.model.pay.Payment;
 import movie.model.seat.Seat;
 import movie.model.seat.SeatGrade;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -13,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
 
     @Test
-    @DisplayName("성공적인 티켓 구매 테스트")
-    void buyTicket_success() throws Exception {
+    void 성공적인_티켓_구매_테스트() throws Exception {
         User user = new User(1L);
         Movie movie = new Movie("테스트 영화", 2);
         Seat seat = new Seat(SeatGrade.S);
@@ -29,8 +27,7 @@ class UserTest {
     }
 
     @Test
-    @DisplayName("포인트를 사용한 티켓 구매 테스트")
-    void buyTicket_withPoints() throws Exception {
+    void 포인트를_사용한_티켓_구매_테스트() throws Exception {
         User user = new User(1L);
         user.addPoint(2000);
         Movie movie = new Movie("테스트 영화", 2);
@@ -45,8 +42,7 @@ class UserTest {
     }
 
     @Test
-    @DisplayName("티켓 시간 중복 시 예외 발생 테스트")
-    void buyTicket_overlappingTime_throwsException() throws Exception {
+    void 티켓_시간_중복_시_예외_발생_테스트() throws Exception {
         User user = new User(1L);
         Movie movie = new Movie("테스트 영화", 2);
         Seat seat = new Seat(SeatGrade.S);
@@ -64,8 +60,7 @@ class UserTest {
     }
 
     @Test
-    @DisplayName("포인트 적립 테스트")
-    void buyTicket_pointAccumulation() throws Exception {
+    void 포인트_적립_테스트() throws Exception {
         User user = new User(1L);
         Movie movie = new Movie("테스트 영화", 2);
         Seat seatS = new Seat(SeatGrade.S);
